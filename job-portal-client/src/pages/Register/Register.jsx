@@ -1,10 +1,13 @@
 import { FaGoogle } from "react-icons/fa";
 import Lottie from "lottie-react";
 import registerAnimationData from "../../assets/lottie/register.json";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import AuthContext from "../../context/AuthContext/AuthContext";
 
 const Register = () => {
   const [error, setError] = useState(false);
+
+  const { createUser } = useContext(AuthContext);
 
   const handleRegisterUser = (e) => {
     e.preventDefault();
@@ -17,6 +20,13 @@ const Register = () => {
     console.log(name, email, userName, password, rePassword);
 
     if (password === rePassword) {
+      createUser(email, password)
+        .then((result) => {
+          console.log(result.user);
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
     } else {
       setError(true);
     }
