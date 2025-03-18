@@ -1,8 +1,8 @@
-import { FaGoogle } from "react-icons/fa";
 import Lottie from "lottie-react";
 import registerAnimationData from "../../assets/lottie/register.json";
 import { useContext, useState } from "react";
 import AuthContext from "../../context/AuthContext/AuthContext";
+import SocialLogin from "../shared/SocialLogin";
 
 const Register = () => {
   const [error, setError] = useState(false);
@@ -55,12 +55,7 @@ const Register = () => {
         </p>
 
         {/* Google Sign-Up Button */}
-        <button className="btn btn-outline w-full mb-4 flex items-center justify-center gap-2 bg-gray-700 text-white hover:bg-gray-600">
-          <i className="text-lg text-white">
-            <FaGoogle />
-          </i>
-          <span>Sign up with Google</span>
-        </button>
+        <SocialLogin />
 
         {/* Divider */}
         <div className="flex items-center my-6">
