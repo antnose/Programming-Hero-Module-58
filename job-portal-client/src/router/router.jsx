@@ -5,6 +5,7 @@ import Register from "../pages/Register/Register";
 import SignIn from "../pages/SignIn/SignIn";
 import JobDetails from "../pages/JobDetails/JobDetails";
 import PrivateRoute from "./PrivateRoute";
+import JobApply from "../pages/JobApply/JobApply";
 
 const router = createBrowserRouter([
   {
@@ -21,9 +22,19 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
+        path: `/jobApply/:id`,
+        element: (
+          <PrivateRoute>
+            <JobApply />
+          </PrivateRoute>
+        ),
+        // loader:
+      },
+      {
         path: "/signIn",
         element: <SignIn />,
       },
+
       {
         path: "/jobs/:id",
         element: (
@@ -39,3 +50,4 @@ const router = createBrowserRouter([
 ]);
 
 export default router;
+// 6.49 59-6
